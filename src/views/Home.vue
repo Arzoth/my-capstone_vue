@@ -1,32 +1,70 @@
 
+
 <template>
- <div id="menuItems">
-  <div v-for="(menuItems, index) in menuItems" :key="menuItems.id">
+  <div class="home">
+    <h1>{{ menuItems.menuItems }}</h1>
+    <p>Title: <input type="text" v-model="newMenuItemTitle"></p>
+    <p>Calorie: <input type="text" v-model="newMenuItemCalorie"></p>
+    <p>Protein: <input type="text" v-model="newMenuItemProtein"></p>
+    <p>Fat: <input type="text" v-model="newMenuItemFat"></p>
+    <p>Carb: <input type="text" v-model="newMenuItemCarb"></p>
+     <button v-on:click="createMenu()">Show me Options</button>
+    <div v-for=" menuItem in menuItems">
+      <p>Title:{{menuItem.title}}</p>
+      <p>RestaurantChain:{{menuItem.restaurantChain}}</p>
+     
+
+      <p>ServingSize:{{menuItem.servingSize}}</p>
+      <p>image: {{menuItem.image_url}}</p>
+      <img width="150px" v-bind:src="menuItem.image" v-bind:alt="menuItem.title"/> 
+      <hr>
+
+  
+    </div>
   </div>
- </div>
 </template>
 
-<script>
-import axios from 'axios'
-export default {
- data() {
-  return {
-   menuItems: [],
-   title: [],
-   chain: [],
-   };
-  },
- 
- created: function() {
-   console.log("i am in created");
-   axios.get("/api/index").then(response => {
-     console.log(response.data);
-     this.menuItems = response.data;
-   });
- },
- // .catch(e => {
- //  this.error.push(e)
- //  })
- }
 
+<script>
+import axios from "axios"
+export default {
+  data: function() {
+    return {
+      message: "Welcome to Foodows",
+      menuItems: [],
+      newMenuItemCalorie: "",
+      newMenuItemProtein: '',
+      newMenuItemFat: "",
+      newMenuItemCarb: "",
+      newMenuItemTitle: "",
+    };
+  },
+  created: function() {
+    console.log('i am in created');
+    axios.get("/api/foodows").then(response => {
+      console.log(response.data);
+      this.menuItems = response.data.menuItems;
+    })
+  },
+  methods: {
+    createMenu: function() {
+      console.log('creating menu');
+      // get some data
+      var newmenuItem = {
+        title: this.newMenuItemTitle,
+        Calorie: this.newMenuItemCalorie,
+        Carb: this.newMenuItemCarb,
+        Fat: this.newMenuItemFat,
+        Protein: this.newMenuItemProtein
+      }
+        axios.get('/api/foodows/search', newmenuItem).then(response => {
+        console.log('in the callback for create')
+        console.log(response.data);
+        this.menuItem.fetch(response.data);
+        }).catch(error => {
+        console.log(error.response);
+      })
+   }
+ }
+};
 </script>
