@@ -1,27 +1,23 @@
 <template>
-  <div class="Search">
-     <h1>{{ dietPlans }}</h1>
-  <form v-on:submit.prevent="FindMenu()">
-   
+  <div class="search">
+    <!-- <h1>{{ menuItems.menuItems }}</h1> -->
+    <p>diet: <input type="text" v-model="newMenuItemDiet"></p>
+    <p>Calorie: <input type="text" v-model="newMenuItemCalorie"></p>
+    <p>Protein: <input type="text" v-model="newMenuItemProtein"></p>
+    <p>Fat: <input type="text" v-model="newMenuItemFat"></p>
+    <p>Carb: <input type="text" v-model="newMenuItemCarb"></p>
+     <button v-on:click="createMenu()">Show me Options</button>
 
-    <p>Diet: <input type="text" v-model="newDietPlanDiet"></p>
-    <p>Calorie: <input type="text" v-model="newDietPlanCalorie"></p>
-    <p>Protein: <input type="text" v-model="newDietPlanProtein"></p>
-    <p>Fat: <input type="text" v-model="newDietPlanFat"></p>
-    <p>Carb: <input type="text" v-model="newDietPlanCarb"></p>
-     <!-- <input type="submit" value="Submit"></input> -->
-     button v-on:
-      </form>
-
-     <div v-for=" dietPlan in dietPlans">
-      <p>Title:{{dietPlan.title}}</p>
-      <p>RestaurantChain:{{dietPlan.restaurantChain}}</p>
-      <p>ServingSize:{{dietPlan.servingSize}}</p>
-      <p>image: {{dietPlan.image_url}}</p>
-      <img width="150px" v-bind:src="dietPlan.image_url" v-bind:alt="dietPlan.image"/> 
+    <div v-for=" menuItem in menuItems">
+      <p>Title:{{menuItem.title}}</p>
+      <p>RestaurantChain:{{menuItem.restaurantChain}}</p>
+      <p>ServingSize:{{menuItem.servingSize}}</p>
+      <p>image: {{menuItem.image_url}}</p>
+      <img width="150px" v-bind:src="menuItem.image" v-bind:alt="menuItem.title"/> 
       <hr>
 
-  </div>
+  
+    </div>
   </div>
 </template>
 
@@ -32,42 +28,35 @@ export default {
   data: function() {
     return {
       message: "Welcome to Foodows",
-      dietPlans: "",
-      newDietPlanCalorie: "",
-      newDietPlanProtein: "",
-      newDietPlanFat: "",
-      newDietPlanCarb: "",
-      newDietPlanDiet: "",
-    };
+      menuItems: "",
+      newMenuItemCalorie: "",
+      newMenuItemProtein: '',
+      newMenuItemFat: "",
+      newMenuItemCarb: "",
+      newMenuItemDiet: "",
+   };
   },
-  // created: function() { 
-  //   console.log('i am in created');
-  //   axios.get("/api/foodows/").then(response => {
-  //   console.log(response.data);
-  //   this.newDietPlan = response.data.restaurantChain;
-  //   this.newDietPlanCarb = response.data.carb_max;
-  //   this.newDietPlanCalorie = response.data.calorie_max;
-  //   this.newDietPlanFat = response.data.fat_max;
-  //   this.newDietPlanProtein = response.data.protien_max;
-  
-  //   })
-  // },
+
   methods: {
-    FindMenu: function() {
-      console.log('searching');
-      // get some data
-      var FindMenu = {
-        diet: this.newDietPlanDiet,
-        Calorie: this.newDietPlanCalorie,
-        Carb: this.newDietPlanCarb,
-        Fat: this.newDietPlanFat,
-        Protein: this.newDietPlanProtein
-      }
-        axios.get('/api/foodows/search', FindMenu).then(response => {
-        console.log('hello')
-        console.log(response.data);
-        // this.$router.push('/search');
+    createMenu: function() {
+      console.log('creating menu');
+        
+      axios.get("api/foodows/search", {
+        params: {
+          diet: this.newMenuItemDiet,
+          calorie_max: this.newMenuItemCalorie,
+          carb_max: this.newMenuItemCarb,
+          fat_max: this.newMenuItemFat,
+          protien_max: this.newMenuItemProtein
+        }
       })
+  
+        .then(response => {
+
+          console.log(response.data.menuItems);
+          this.menuItems = response.data.menuItems;
+    
+        })
       }
      }
    };

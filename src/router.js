@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Index from './views/FoodowIndex.vue'
 import Search from './views/FoodowSearch.vue'
 import Show from './views/FoodowShow.vue'
+import Menu from './views/MenuIndex.vue'
 
 Vue.use(Router)
 
@@ -15,6 +16,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+      {
+      path: '/menu',
+      name: 'Menu',
+      component: Menu
     },
     {
       path: '/index',
