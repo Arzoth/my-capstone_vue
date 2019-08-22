@@ -1,5 +1,6 @@
 <template>
   <div class="menu">
+    <img src="assets/foodow.png">
     <p>time_frame: <input type="text" v-model="newMenuTimeFrame"></p>
     <p>Calorie: <input type="text" v-model="newMenuTargetCalories"></p>
     <p>Diet: <input type="text" v-model="newMenuDiet"></p>
@@ -7,16 +8,18 @@
      <button v-on:click="createMenu()">Show me menu</button>
 
     <div v-for=" meal in meals">
+      <p>Id: {{meal.id}}</p>
       <p>Title:{{meal.title}}</p>
       <p>Prep_Time:{{meal.readyInMinutes}}</p>
       <p>ServingSize:{{meal.serving}}</p>
-      <p>image: {{meal.image_Url}}</p>
-      <img width="150px" v-bind:src="meal.image" v-bind:alt="meal.title"/> 
+      <p>image: {{meal.image_url}}</p>
+      <img  v-bind:src="('https://spoonacular.com/recipeImages/`${meal.id}` + 556x370.jpg')" v-bind:alt="meal.title"/> 
+
       <hr>
 
   
     </div>
-  </div>
+  </div>  
 </template>
 
 <script>
@@ -26,7 +29,7 @@ export default {
   data: function() {
     return {
       message: "Welcome to Foodows",
-      meals: "",
+      meals: [],
       newMenuTimeFrame: "",
       newMenuTargetCalories: '',
       newMenuDiet: "",
@@ -38,6 +41,7 @@ export default {
   methods: {
     createMenu: function() {
       console.log('creating menu');
+    
         
       axios.get("api/menus", {
         params: {
@@ -51,7 +55,8 @@ export default {
         .then(response => {
 
           console.log(response.data.meals);
-          this.items = response.data.items;
+          this.meals = response.data.meals;
+          
     
         })
       }

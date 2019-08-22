@@ -5,7 +5,7 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/index">All</router-link> |   
      <router-link to="/search">Customize</router-link> |
-     <router-link to="/menus">menu</router-link> 
+     <router-link to="/menu">menu</router-link> 
 
 
     </div>

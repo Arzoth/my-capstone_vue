@@ -1,5 +1,6 @@
 <template>
   <div class="search">
+    
     <!-- <h1>{{ menuItems.menuItems }}</h1> -->
     <p>diet: <input type="text" v-model="newMenuItemDiet"></p>
     <p>Calorie: <input type="text" v-model="newMenuItemCalorie"></p>
