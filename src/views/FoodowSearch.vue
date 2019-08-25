@@ -2,7 +2,7 @@
   <div class="search">
     
     <!-- <h1>{{ menuItems.menuItems }}</h1> -->
-    <p>diet: <input type="text" v-model="newMenuItemDiet"></p>
+    <p>FoodItem: <input type="text" v-model="newMenuItemDiet"></p>
     <p>Calorie: <input type="text" v-model="newMenuItemCalorie"></p>
     <p>Protein: <input type="text" v-model="newMenuItemProtein"></p>
     <p>Fat: <input type="text" v-model="newMenuItemFat"></p>
@@ -44,7 +44,7 @@ export default {
         
       axios.get("api/foodows/search", {
         params: {
-          diet: this.newMenuItemDiet,
+          FoodItem: this.newMenuItemDiet,
           calorie_max: this.newMenuItemCalorie,
           carb_max: this.newMenuItemCarb,
           fat_max: this.newMenuItemFat,

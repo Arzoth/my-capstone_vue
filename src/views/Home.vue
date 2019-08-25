@@ -2,24 +2,13 @@
 
 <template>
   <div class="home">
-    <h1>{{ menuItems.menuItems }}</h1>
-    <p>diet: <input type="text" v-model="newMenuItemDiet"></p>
-    <p>Calorie: <input type="text" v-model="newMenuItemCalorie"></p>
-    <p>Protein: <input type="text" v-model="newMenuItemProtein"></p>
-    <p>Fat: <input type="text" v-model="newMenuItemFat"></p>
-    <p>Carb: <input type="text" v-model="newMenuItemCarb"></p>
-     <button v-on:click="createMenu()">Show me Options</button>
-    <div v-for=" menuItem in menuItems">
-      <p>Title:{{menuItem.title}}</p>
-      <p>RestaurantChain:{{menuItem.restaurantChain}}</p>
-      <p>ServingSize:{{menuItem.servingSize}}</p>
-      <p>image: {{menuItem.image_url}}</p>
-      <img width="150px" v-bind:src="menuItem.image" v-bind:alt="menuItem.title"/> 
-      <hr>
-
-  
-    </div>
+    <h1>{{ text.text }}</h1>
+    <!-- <div v-for=" text in text"> -->
+    <p>text:{{text}}</p>
   </div>
+</div>
+
+
 </template>
 
 
@@ -29,12 +18,9 @@ export default {
   data: function() {
     return {
       message: "Welcome to Foodows",
-      menuItems: [],
-      newMenuItemCalorie: "",
-      newMenuItemProtein: '',
-      newMenuItemFat: "",
-      newMenuItemCarb: "",
-      newMenuItemDiet: "",
+      joke: [],
+      text: ""
+     
    };
   },
 
@@ -42,39 +28,14 @@ export default {
     console.log('i am in created');
     axios.get("/api/foodows").then(response => {
       console.log(response.data);
-      this.menuItems = response.data;
+      this.text = response.data.text;
     })
   },
   
-  methods: {
-    createMenu: function() {
-      console.log('creating menu');
-      // get some data
-      var dietPlan = {
-        title: this.diet,
-        Calorie: this.calorie_max,
-        Carb: this.newMenuItemCarb,
-        Fat: this.newMenuItemFat,
-        Protein: this.newMenuItemProtein
-      };
-      axios.get("api/foodows/search", {
-        params: {
-          diet: this.newMenuItemDiet,
-          calorie_max: this.newMenuItemCalorie,
-          carb_max: this.newMenuItemCarb,
-          fat_max: this.newMenuItemFat,
-          protien_max: this.newMenuItemProtein
-        }
-      })
   
-        .then(response => {
-
-          console.log(response.data.menuItems);
-          this.menuItems = response.data.title;
-        })
    
   
   } 
- }
-}
+ 
+
 </script>

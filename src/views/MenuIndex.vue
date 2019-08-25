@@ -1,6 +1,6 @@
 <template>
   <div class="menu">
-    <img src="assets/foodow.png">
+    
     <p>time_frame: <input type="text" v-model="newMenuTimeFrame"></p>
     <p>Calorie: <input type="text" v-model="newMenuTargetCalories"></p>
     <p>Diet: <input type="text" v-model="newMenuDiet"></p>
@@ -13,7 +13,7 @@
       <p>Prep_Time:{{meal.readyInMinutes}}</p>
       <p>ServingSize:{{meal.serving}}</p>
       <p>image: {{meal.image_url}}</p>
-      <img  v-bind:src="('https://spoonacular.com/recipeImages/`${meal.id}` + 556x370.jpg')" v-bind:alt="meal.title"/> 
+      <img  v-bind:src="`https://spoonacular.com/recipeImages/${meal.id}-556x370.jpg`" v-bind:alt="meal.title"/> 
 
       <hr>
 
@@ -39,7 +39,7 @@ export default {
   },
 
   methods: {
-    createMenu: function() {
+  createMenu: function() {
       console.log('creating menu');
     
         
