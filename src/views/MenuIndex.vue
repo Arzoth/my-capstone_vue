@@ -6,7 +6,7 @@
     <p>Diet: <input type="text" v-model="newMenuDiet"></p>
     <p>Exclude: <input type="text" v-model="newMenuExclude"></p>
      <button v-on:click="createMenu()">Show me menu</button>
-
+    <div v-if="newMenuTimeFrame == 'day' ">
     <div v-for=" meal in meals">
       <p>Id: {{meal.id}}</p>
       <p>Title:{{meal.title}}</p>
@@ -14,12 +14,20 @@
       <p>ServingSize:{{meal.serving}}</p>
       <p>image: {{meal.image_url}}</p>
       <img  v-bind:src="`https://spoonacular.com/recipeImages/${meal.id}-556x370.jpg`" v-bind:alt="meal.title"/> 
-
-      <hr>
-
-  
+     </div>
+      </div>
+      <div v-else-if="newMenuTimeFrame == 'week' ">
+      <div v-for=" item in items"> 
+      <p>day: {{item.day}}</p>
+      <p>slot: {{item.slot}}</p>
+      <p>type: {{item.type}}</p>
+      <p>title: {{item.value.title}}</p>
+      <img  v-bind:src="`https://spoonacular.com/recipeImages/${item.value.id}-556x370.jpg`"/> 
+      
     </div>
+  </div>
   </div>  
+</div>
 </template>
 
 <script>
@@ -30,10 +38,11 @@ export default {
     return {
       message: "Welcome to Foodows",
       meals: [],
-      newMenuTimeFrame: "",
-      newMenuTargetCalories: '',
-      newMenuDiet: "",
-      newMenuExclude: "",
+      items: [],
+      newMenuTimeFrame: "week",
+      newMenuTargetCalories: "1400",
+      newMenuDiet: "hcg",
+      newMenuExclude: "olives",
       
    };
   },
@@ -54,8 +63,11 @@ export default {
   
         .then(response => {
 
-          console.log(response.data.meals);
-          this.meals = response.data.meals;
+          console.log(response.data);
+          this.meals = response.data;
+          console.log(response.data);
+          this.items = response.data;
+
           
     
         })
