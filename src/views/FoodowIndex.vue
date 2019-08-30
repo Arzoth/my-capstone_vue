@@ -1,5 +1,6 @@
 <template>
   <div class="index">
+    
     <h1>{{ menuItems.menuItems }}</h1>
     <div v-for=" menuItem in menuItems">
       <p>Title:{{menuItem.title}}</p>
