@@ -1,7 +1,7 @@
 /* Base CSS */
 body {
   color: #6666;
-  background: #Fefefe;
+  background: "banner.jpg";
   font-family: "Cabin", sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -270,7 +270,7 @@ img {
 }
 
 img.btn-pill {
-  border: 1px solid transparent;
+  border: 2px solid transparent;
 }
 
 .page-header {
@@ -728,6 +728,7 @@ a.btn {
   color: #294a6b;
   border: 2px solid #294a6b;
   background: transparent;
+  
 }
 
 .btn-default:hover {

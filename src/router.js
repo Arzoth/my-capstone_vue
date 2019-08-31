@@ -6,7 +6,8 @@ import Search from './views/FoodowSearch.vue'
 import Show from './views/FoodowShow.vue'
 import Menu from './views/MenuIndex.vue'
 import Recipe from './views/FoodowRecipe'
-import Signup from "./views/Signup.vue";
+import Signup from "./views/Signup.vue"
+import Nutritions from "./views/FoodowNutritions";
 
 Vue.use(Router)
 
@@ -48,6 +49,11 @@ export default new Router({
       path: '/recipe',
       name: 'Recipes',
       component: Recipe
+    },
+    {
+      path: '/nutritions',
+      name: 'Nutritions',
+      component: Nutritions
     },
     {
       path: '/about',

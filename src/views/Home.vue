@@ -11,7 +11,7 @@
                     <div class="carousel-caption">
                         <div class="row">
                             <div class="col-md-12 slider-content">
-                                <img src="icustom-3d-mural-wallpaper-spices-spoon-food.jpg" alt="" class="animated fadeInDown first">
+                                <img src="6b8309d9-a177-404e-9372-c636aeebeb0d_200x200(2).png" alt="" class="animated fadeInDown first">
                                 <h2 class="slide-title fadeInUp animated second space-top-30"><span class="text-primary">Foodow</span></h2>
                                 <div class="separator-line-center-2x primary-bg-color animated fadeInDown third"></div>
                                 <p class="slide-text flipInX animated third">

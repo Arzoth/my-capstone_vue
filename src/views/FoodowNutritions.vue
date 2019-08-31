@@ -1,5 +1,5 @@
 <template>
-  <div class="Recipe">
+  <div class="Nutritions">
 
     <section id="opening" class="parallax-background">
     <div class="container">
@@ -31,13 +31,13 @@
 
 <!-- content -->
 
-  <form class="form-inline" v-on:submit.prevent="createRecipe()">
+  <form class="form-inline" v-on:submit.prevent="createNutrition()">
             <div class="form-group mb-2">
              </div>
              <div class="form-group sm-3 mb-2">
         
-          user_recipes: <input type="text" class="form-control" v-model="newRecipe">
-                           <button class="form-control"> Show me recipe</button>
+          title: <input type="text" class="form-control" v-model="newNutrition">
+                           <button class="form-control"> nutritions</button>
       </div>
     </form>
   <div class="row">
@@ -45,14 +45,14 @@
 
                 <figure>
                     <div class="hovereffect">
-                       <div v-for=" media in media">
+                       <div v-for=" recipeUsed in recipesUsed">
 
-                          <p>Title:{{media.title}}</p>
-                          <p>link:{{media.link}}</p> 
-                         <router-link v-bind:to="`/media/${media.id}/`"></router-link> 
-                           <a class="open-gallery" v-for:href="media.link"> {{media.title}} </a>
-                          <p>image: {{media.image_url}}</p>
-                           <img class="img-rounded" width="150px" v-bind:src="media.image" v-bind:alt="media.title"/> 
+                          <p>Protein:{{recipesUsed.protein.value}}</p>
+                          <p>calories:{{recipesUsed.calories.value}}</p> 
+                         
+                          <p>fat: {{recipesUsed.fat.value}}</p>
+                          <p>carbs: {{recipesUsed.carbs.value}}</p>
+                          
     
                            
                         </div>
@@ -112,22 +112,23 @@ export default {
   data: function() {
     return {
       message: "Welcome to index!",
-      media: "",
-      newRecipe: "",
+      recipesUsed: "",
+      newNutrition: "",
+
     };
   },
   methods: {
-  createRecipe: function() {
+  createNutrition: function() {
     console.log('i am in created');
-    axios.get("/api/recipes", {
+    axios.get("/api/foodows/nutritions", {
       params: {
-        user_recipes: this.newRecipe
+        title: this.newNutrition
       }
     })
 
       .then(response => {
-      console.log(response.data.media);
-      this.media = response.data.media;
+      console.log(response.data);
+      this.recipesUsed = response.data;
     })
   }
 }  

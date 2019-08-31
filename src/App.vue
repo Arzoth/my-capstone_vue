@@ -19,6 +19,7 @@
                     <li><a href="Search" class="Search">SEARCH</a></li>
                     <li><a href="Menu" class="Menu">MEAL PLANNER</a></li>
                     <li><a href="Recipe" class="Recipe">RECIPES </a></li>
+                    <li><a href="Nutritions" class="Nutritions">NUTRITIONS </a></li>
                     <!-- <li><a href="reservations" class="page-scroll">RESERVATIONS</a></li> -->
                     <!-- <li><a href="#contact" class="page-scroll">CONTACT</a></li> -->
                 </ul>
