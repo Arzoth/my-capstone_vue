@@ -2,7 +2,7 @@
   <div class="Nutritions">
 
     <section id="opening" class="parallax-background">
-    <div class="container">
+    
     
             <div class="space-20"></div>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -24,81 +24,61 @@
                 
               <!--   </ul> -->
             </div><!--/.nav-collapse -->
-        </div><!-- / container -->
+       
     </section>
 
 <!-- / header -->
 
 <!-- content -->
-
+<div class="container">
   <form class="form-inline" v-on:submit.prevent="createNutrition()">
-            <div class="form-group mb-2">
-             </div>
-             <div class="form-group sm-3 mb-2">
+            
+             <div class="form-group sm-3 mb-2 text-black">
         
-          title: <input type="text" class="form-control" v-model="newNutrition">
-                           <button class="form-control"> nutritions</button>
+          Title: <input type="text" class="form-control" v-model="newNutrition">
+          <button class="btn btn-primary mb-2"> Submit</button>
       </div>
     </form>
-  <div class="row">
-  <div class="col-xs-6 col-md-3 gallery-item">
-
-                <figure>
-                    <div class="hovereffect">
-                       <div v-for=" recipeUsed in recipesUsed">
-
-                          <p>Protein:{{recipesUsed.protein.value}}</p>
-                          <p>calories:{{recipesUsed.calories.value}}</p> 
-                         
-                          <p>fat: {{recipesUsed.fat.value}}</p>
-                          <p>carbs: {{recipesUsed.carbs.value}}</p>
-                          
-    
-                           
-                        </div>
+    <section id="opening" class="parallax-background">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 opening-box">
+                <div class="page-header wsub dark text-center">
+                   
+                    <div class="separator-line-center medium-spacing">&nbsp;</div>
+                </div><!-- / page-header -->
+                <div class="row">
+                    <div class="col-md-6 opening-center">
+                       
+      
+                     
+                        
+                    </div><!-- / opening-left -->
+                    <div class="col-md-6 opening">
+                         <h3 class="text-primary opening-title space-bottom-30">Here is the Nutrition info</h3>
+                        <p class="opening-hours"></p>
+                        
+                        <h3 class="text-primary opening-title space-bottom-30">Carbs: {{recipesUsed.carbs.value}} gram</h3>
+                        <h3 class="text-primary opening-title space-bottom-30">Fat: {{recipesUsed.fat.value}}  gram</h3>
+                        <h3 class="text-primary opening-title space-bottom-30">Calories:{{recipesUsed.calories.value}} calories</h3>
+                        <h3 class="text-primary opening-title space-bottom-30">Protein:{{recipesUsed.protein.value}} gram</h3>
+                    </div><!-- / opening-right -->
+                    <div class="col-xs-12">
+                       
                     </div>
-                </figure>
-            </div>  
+                </div><!-- / row -->
+            </div><!-- / opening-box -->
+        </div><!-- / row -->
+    </div><!-- / container -->
+</section>
+<!-- / opening -->
+  
+  
 
   </div>  
-
-<!--  
-  <div class="col-xs-6 col-md-3 no-repeat">
-
-                <figure>
-                    <div class="hovereffect">
-                       <div v-for=" media in media">
-
-                          <p>Title:{{media.title}}</p>
-                          <p>link:{{media.link}}</p> 
-                         <router-link v-bind:to="`/media/${media.id}/`"></router-link> 
-                           <a class="open-gallery" v-bind:href="media.link"> {{media.title}} </a>
-                          <p>image: {{media.image_url}}</p>
-                           <img class="img-rounded" width="150px" v-bind:src="media.image" v-bind:alt="media.title"/> 
-    
-                           
-                        </div>
-                    </div>
-                </figure>
-            </div>  
-
-
-  <div class="col-xs-6 col-md-3 ">
-
-                <figure>
-                    <div class="hovereffect">
-                       <div v-for=" media in media">
-                          <p>Title:{{media.title}}</p>
-                          <p>link:{{media.link}}</p> 
-                         <router-link v-for="link in media" v-bind:to="`/media/${media.id}/`"></router-link> 
-                           <a class="open-gallery" v-bind:href="media.link"> {{media.title}} </a>
-                          <p>image: {{media.image_url}}</p>
-                           <img class="img-rounded" width="150px" v-bind:src="media.image" v-bind:alt="media.title"/> 
-    
-                        </div>
-                    </div>
-                </figure>
-            </div>  --> 
+</div>
+ 
+  
 
  
 
@@ -112,7 +92,7 @@ export default {
   data: function() {
     return {
       message: "Welcome to index!",
-      recipesUsed: "",
+      recipesUsed: {protein: {value: ""}, carbs: {value: ""}, calories: {value: ""}, fat: {value: ""}},
       newNutrition: "",
 
     };

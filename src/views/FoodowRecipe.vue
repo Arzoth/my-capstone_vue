@@ -2,7 +2,7 @@
   <div class="Recipe">
 
     <section id="opening" class="parallax-background">
-    <div class="container">
+    
     
             <div class="space-20"></div>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -24,21 +24,20 @@
                 
               <!--   </ul> -->
             </div><!--/.nav-collapse -->
-        </div><!-- / container -->
+       <!-- / container -->
     </section>
-
 <!-- / header -->
 
 <!-- content -->
-
+<div class="container">
   <form class="form-inline" v-on:submit.prevent="createRecipe()">
             <div class="form-group mb-2">
              </div>
-             <div class="form-group sm-3 mb-2">
+             <div class="form-group sm-3 mb-2 text-black">
         
-          user_recipes: <input type="text" class="form-control" v-model="newRecipe">
-                           <button class="form-control"> Show me recipe</button>
-      </div>
+               user_recipes: <input type="text" class="form-control" v-model="newRecipe">
+              <button class="btn btn-primary mb-2"> Recipes </button>
+           </div>
     </form>
   <div class="row">
   <div class="col-xs-6 col-md-3 gallery-item">
@@ -104,6 +103,7 @@
 
    
   </div>
+</div>
 </template>
 
 <script>

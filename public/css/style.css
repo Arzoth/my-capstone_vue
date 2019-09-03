@@ -23,6 +23,7 @@ h1, h2, h3 {
   margin-top: 0;
 }
 
+
 h4, h5, h6 {
   color: #111111;
   font-family: "Cabin", sans-serif;
@@ -32,7 +33,7 @@ h4, h5, h6 {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 80px;
   margin-bottom: 24px;
 }
 
@@ -257,8 +258,8 @@ strong {
 
 /* / End Typography */
 .row {
-  margin-right: 0;
-  margin-left: 0;
+  margin-right: 20;
+  margin-left: 20;
 }
 
 img {
@@ -473,7 +474,7 @@ img.btn-pill {
 }
 
 .no-padding {
-  padding: 0 !important;
+  padding: 10 !important;
 }
 
 .no-padding-left {
@@ -516,7 +517,7 @@ input:focus {
 
 .form-group:focus {
   outline: none !important;
-  border: 1px solid #bc9d4b !important;
+  border: 1px solid red !important;
   box-shadow: none !important;
 }
 
@@ -752,15 +753,15 @@ a.btn {
 /* / End Default Button */
 /* Primary Button */
 .btn-primary, .btn-primary:active, .btn-primary:focus {
-  color: #008CBA;
-  border: 2px solid #008CBA;
+  color: red;
+  border: 2px solid red;
   background: transparent;
 }
 
 .btn-primary:hover {
-  color: white;
-  background: #008CBA;
-  border: 2px solid #008CBA;
+  color: red;
+  background: white;
+  border: 2px solid red;
 }
 
 .btn-primary-filled, .btn-primary-filled:active, .btn-primary-filled:focus {
@@ -947,8 +948,8 @@ a.btn {
 
 .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open > .dropdown-toggle.btn-primary.focus, .open > .dropdown-toggle.btn-primary:focus, .open > .dropdown-toggle.btn-primary:hover {
   color: white;
-  background-color: #bc9d4b;
-  border-color: #bc9d4b;
+  background-color: red;
+  border-color: red;
 }
 
 .btn-primary.active, .btn-primary:active, .open > .dropdown-toggle.btn-primary {
@@ -1660,8 +1661,8 @@ table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table
 }
 
 .navbar-brand > img {
-  width: auto;
-  max-height: 40px;
+  width: 80px;
+  max-height: 80px;
 }
 
 .navbar-toggle .icon-bar {
@@ -1750,25 +1751,26 @@ table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #111111;
+  color: black;
   font-size: 13px;
   font-weight: 700;
 }
 
 .navbar-default.dark-bg .navbar-nav > li > a {
-  color: rgba(255, 255, 255, 0.77);
+  color: rgba(242, 38, 19, 1);
+  
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-  color: #bc9d4b;
+  color: red;
 }
 
 .navbar-default .navbar-nav > li > a:focus {
-  color: #bc9d4b !important;
+  color: red !important;
 }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
-  color: #bc9d4b;
+  color: red;
   background-color: transparent;
 }
 
@@ -1904,7 +1906,7 @@ table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table
 }
 
 .slide-title {
-  font-size: 40px;
+  font-size: 100px;
 }
 
 .dark-slider .slide-title {
@@ -2158,7 +2160,7 @@ section {
 }
 
 .opening-hours {
-  color: white;
+  color: orange;
   font-size: 26px;
   font-weight: 700;
   margin: 0;
@@ -2356,8 +2358,8 @@ section {
   font-weight: 400;
   letter-spacing: 0.05em;
   border: 1px solid #ebebeb;
-  border-radius: 0;
-  padding: 10px 20px;
+  border-radius: 2;
+  padding: 10px 10px;
   min-height: 50px;
   -webkit-box-shadow: none;
   box-shadow: none !important;
@@ -2954,5 +2956,6 @@ footer p {
     padding-bottom: 20px;
   }
 }
+box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
 /* End Min Widths */
 /* / End Media Screens */

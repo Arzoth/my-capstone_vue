@@ -21,43 +21,46 @@
                 
               <!--   </ul> -->
             </div><!--/.nav-collapse -->
-        </div><!-- / container -->
+       </div>
     </section>
+    <div class="container">
 
           <form class="form-inline" v-on:submit.prevent="createMenu()">
             <div class="form-group mb-2">
              </div>
-             <div class="form-group sm-3 mb-2">
+             <div class="form-group sm-3 mb-2 text-black">
        
          time_frame: <input type="text" class="form-control" v-model="newMenuTimeFrame">
           Calorie: <input type="text" class="form-control" v-model="newMenuTargetCalories">
           Diet: <input type="text" class="form-control" v-model="newMenuDiet">
           Exclude: <input type="text"  class="form-control" v-model="newMenuExclude">
-      
-        <button type="submit" class="btn btn-primary mb-2" >Show me menu</button>
-      </div>
+    
+           <button type="submit" class="btn btn-primary mb-2" >Create Menu</button>
+           </div>
+
         </form>
-        <div class="col-xs-6 col-md-3 gallery-item">
+    
+        <div class="col-xs-6 col-md-3 gallery-item text-black">
 
                 <figure>
                     <div class="hovereffect">
                        <div v-if="newMenuTimeFrame == 'day' ">
-                            <div v-for=" meal in meals">
-                              <p>Id: {{meal.id}}</p>
-                              <p>Title:{{meal.title}}</p>
+                            <div v-for=" meal in breakfastMeals">
+                              
+                            
+                              
+                              <img class="rounded img-thumbnail" v-bind:src="`https://spoonacular.com/recipeImages/${meal.id}-556x370.jpg`" v-bind:alt="meal.title"/> 
+                                <p>Title:{{meal.title}}</p>
                               <p>Prep_Time:{{meal.readyInMinutes}}</p>
-                              <p>ServingSize:{{meal.serving}}</p>
-                              <p>image: {{meal.image_url}}</p>
-                              <img  v-bind:src="`https://spoonacular.com/recipeImages/${meal.id}-556x370.jpg`" v-bind:alt="meal.title"/> 
                              </div>
                               </div>
                               <div v-else-if="newMenuTimeFrame == 'week' ">
-                              <div v-for=" item in items"> 
-                              <p>day: {{item.day}}</p>
-                              <p>type: {{item.type}}</p>
-                              <p>title: {{item.value.title}}</p>
-                              <img  v-bind:src="`https://spoonacular.com/recipeImages/${item.value.id}-556x370.jpg`"/> 
+                              <div v-for=" item in breakfastItems"> 
                               
+                              <img class="rounded img-thumbnail" v-bind:src="`https://spoonacular.com/recipeImages/${item.value.id}-556x370.jpg`"/> 
+                              <p>day: {{item.day}}</p>
+                              
+                              <p>title: {{item.value.title}}</p>
                             </div>
                           </div>
     
@@ -69,27 +72,26 @@
                     </div>
                 </figure>
             </div>  
-        <div class="col-xs-6 col-md-3 gallery-item">
+        <div class="col-xs-6 col-md-3 gallery-item text-black">
 
                 <figure>
                     <div class="hovereffect">
                        <div v-if="newMenuTimeFrame == 'day' ">
-                            <div v-for=" meal in meals">
-                              <p>Id: {{meal.id}}</p>
+                            <div v-for=" meal in lunchMeals">
+                              
+                              
+                              <img  class="rounded img-thumbnail" v-bind:src="`https://spoonacular.com/recipeImages/${meal.id}-556x370.jpg`" v-bind:alt="meal.title"/> 
                               <p>Title:{{meal.title}}</p>
-                              <p>Prep_Time:{{meal.readyInMinutes}}</p>
-                              <p>ServingSize:{{meal.serving}}</p>
-                              <p>image: {{meal.image_url}}</p>
-                              <img  v-bind:src="`https://spoonacular.com/recipeImages/${meal.id}-556x370.jpg`" v-bind:alt="meal.title"/> 
+                              <p>Prep_Time:{{meal.readyInMinutes}}</p>  
                              </div>
                               </div>
                               <div v-else-if="newMenuTimeFrame == 'week' ">
-                              <div v-for=" item in items"> 
-                              <p>day: {{item.day}}</p>
-                              <p>type: {{item.type}}</p>
-                              <p>title: {{item.value.title}}</p>
-                              <img  v-bind:src="`https://spoonacular.com/recipeImages/${item.value.id}-556x370.jpg`"/> 
+                              <div v-for=" item in lunchItems"> 
                               
+                              <img class="rounded img-thumbnail" v-bind:src="`https://spoonacular.com/recipeImages/${item.value.id}-556x370.jpg`"/> 
+                              <p>day: {{item.day}}</p>
+                             
+                              <p>title: {{item.value.title}}</p>
                             </div>
                           </div>
     
@@ -101,27 +103,27 @@
                     </div>
                 </figure>
             </div>
-                <div class="col-xs-6 col-md-3 gallery-item">
+                <div class="col-xs-6 col-md-3 gallery-item text-black">
 
                 <figure>
                     <div class="hovereffect">
                        <div v-if="newMenuTimeFrame == 'day' ">
-                            <div v-for=" meal in meals">
-                              <p>Id: {{meal.id}}</p>
-                              <p>Title:{{meal.title}}</p>
+                            <div v-for=" meal in dinnerMeals">
+                              
+                             
+                          
+                              <img  class="rounded img-thumbnail" v-bind:src="`https://spoonacular.com/recipeImages/${meal.id}-556x370.jpg`" v-bind:alt="meal.title"/> 
+                               <p>Title:{{meal.title}}</p>
                               <p>Prep_Time:{{meal.readyInMinutes}}</p>
-                              <p>ServingSize:{{meal.serving}}</p>
-                              <p>image: {{meal.image_url}}</p>
-                              <img  v-bind:src="`https://spoonacular.com/recipeImages/${meal.id}-556x370.jpg`" v-bind:alt="meal.title"/> 
                              </div>
                               </div>
                               <div v-else-if="newMenuTimeFrame == 'week' ">
-                              <div v-for=" item in items"> 
-                              <p>day: {{item.day}}</p>
-                              <p>type: {{item.type}}</p>
-                              <p>title: {{item.value.title}}</p>
-                              <img  v-bind:src="`https://spoonacular.com/recipeImages/${item.value.id}-556x370.jpg`"/> 
+                              <div v-for=" item in dinnerItems"> 
                               
+                              <img class="rounded img-thumbnail"  v-bind:src="`https://spoonacular.com/recipeImages/${item.value.id}-556x370.jpg`"/> 
+                              <p>day: {{item.day}}</p>
+                             
+                              <p>title: {{item.value.title}}</p>
                             </div>
                           </div>
     
@@ -132,8 +134,10 @@
                         </div>
                     </div>
                 </figure>
-            </div>
-   
+       </div>    
+        </div>
+   </form>
+ </div>
     
   </div>  
 </div>
@@ -148,6 +152,12 @@ export default {
       message: "Welcome to Foodows",
       meals: [],
       items: [],
+      breakfastItems: [],
+      lunchItems: [],
+      dinnerItems: [],
+      lunchMeals: [],
+      breakfastMeals: [],
+      dinnerMeals: [],
       newMenuTimeFrame: "week",
       newMenuTargetCalories: "1400",
       newMenuDiet: "hcg",
@@ -176,13 +186,39 @@ export default {
           this.meals = response.data;
           console.log(response.data);
           this.items = response.data;
-
+          this.breakfastItems.push(this.items[0])
+          this.breakfastItems.push(this.items[3])
+          this.breakfastItems.push(this.items[6])
+          this.breakfastItems.push(this.items[9])
+          this.breakfastItems.push(this.items[12])
+          this.breakfastItems.push(this.items[15])
+          this.breakfastItems.push(this.items[18])
+          this.lunchItems.push(this.items[1])
+          this.lunchItems.push(this.items[4])
+          this.lunchItems.push(this.items[7])
+          this.lunchItems.push(this.items[10])
+          this.lunchItems.push(this.items[13])
+          this.lunchItems.push(this.items[16])
+          this.lunchItems.push(this.items[19])
+          this.dinnerItems.push(this.items[2])
+          this.dinnerItems.push(this.items[5])
+          this.dinnerItems.push(this.items[8])
+          this.dinnerItems.push(this.items[11])
+          this.dinnerItems.push(this.items[14])
+          this.dinnerItems.push(this.items[17])
+          this.breakfastMeals.push(this.items[0])
+          this.lunchMeals.push(this.items[1])
+          this.dinnerMeals.push(this.items[2])
+          
+      
+          
           
     
         })
       }
      }
    };
+  
   
 
 </script>

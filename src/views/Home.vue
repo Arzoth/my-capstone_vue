@@ -14,11 +14,11 @@
                                 <img src="6b8309d9-a177-404e-9372-c636aeebeb0d_200x200(2).png" alt="" class="animated fadeInDown first">
                                 <h2 class="slide-title fadeInUp animated second space-top-30"><span class="text-primary">Foodow</span></h2>
                                 <div class="separator-line-center-2x primary-bg-color animated fadeInDown third"></div>
-                                <p class="slide-text flipInX animated third">
+                                <span class="slide-text flipInX animated third">
                                     <h1>{{ text.text }}</h1>
                                     <!-- <div v-for=" text in text"> -->
-                                    <p>{{text}}</p>
-                                  </p>
+                                    <p class="text-primary">{{text}}</p>
+                                  </span>
                             </div><!-- slider-content -->
                         </div><!-- / row -->
                     </div><!-- / carousel-caption -->
