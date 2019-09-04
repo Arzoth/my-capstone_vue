@@ -22,7 +22,7 @@
             </div><!--/.nav-collapse -->
         </div><!-- / container -->
     </section>
-<div class="container">
+<div class="container" >
           <form class="form-inline" v-on:submit.prevent="createMenu()">
             
              <div class="form-group sm-3 mb-3 text-black">

@@ -30,17 +30,19 @@
              </div>
              <div class="form-group sm-3 mb-2 text-black">
        
-         time_frame: <input type="text" class="form-control" v-model="newMenuTimeFrame">
+         Time Frame: <input type="text" class="form-control" v-model="newMenuTimeFrame">
           Calorie: <input type="text" class="form-control" v-model="newMenuTargetCalories">
           Diet: <input type="text" class="form-control" v-model="newMenuDiet">
           Exclude: <input type="text"  class="form-control" v-model="newMenuExclude">
     
-           <button type="submit" class="btn btn-primary mb-2" >Create Menu</button>
-           </div>
+        <button type="submit" class="btn btn-primary mb-2" >Create Menu</button>
+      </div>
 
         </form>
-    
-        <div class="col-xs-6 col-md-3 gallery-item text-black">
+         </div>
+         <div class="container">
+         <div>
+            <div class="col-xs-6 col-md-3 gallery-item text-black ">
 
                 <figure>
                     <div class="hovereffect">
@@ -60,7 +62,7 @@
                               <img class="rounded img-thumbnail" v-bind:src="`https://spoonacular.com/recipeImages/${item.value.id}-556x370.jpg`"/> 
                               <p>day: {{item.day}}</p>
                               
-                              <p>title: {{item.value.title}}</p>
+                              <p>Title: {{item.value.title}}</p>
                             </div>
                           </div>
     
@@ -72,6 +74,7 @@
                     </div>
                 </figure>
             </div>  
+
         <div class="col-xs-6 col-md-3 gallery-item text-black">
 
                 <figure>
@@ -80,7 +83,7 @@
                             <div v-for=" meal in lunchMeals">
                               
                               
-                              <img  class="rounded img-thumbnail" v-bind:src="`https://spoonacular.com/recipeImages/${meal.id}-556x370.jpg`" v-bind:alt="meal.title"/> 
+                              <img class="rounded img-thumbnail" v-bind:src="`https://spoonacular.com/recipeImages/${meal.id}-556x370.jpg`" v-bind:alt="meal.title"/> 
                               <p>Title:{{meal.title}}</p>
                               <p>Prep_Time:{{meal.readyInMinutes}}</p>  
                              </div>
@@ -88,7 +91,7 @@
                               <div v-else-if="newMenuTimeFrame == 'week' ">
                               <div v-for=" item in lunchItems"> 
                               
-                              <img class="rounded img-thumbnail" v-bind:src="`https://spoonacular.com/recipeImages/${item.value.id}-556x370.jpg`"/> 
+                              <img  class="rounded img-thumbnail" v-bind:src="`https://spoonacular.com/recipeImages/${item.value.id}-556x370.jpg`"/> 
                               <p>day: {{item.day}}</p>
                              
                               <p>title: {{item.value.title}}</p>
@@ -102,8 +105,8 @@
                         </div>
                     </div>
                 </figure>
-            </div>
-                <div class="col-xs-6 col-md-3 gallery-item text-black">
+        </div>
+        <div class="col-xs-6 col-md-3 gallery-item text-black">
 
                 <figure>
                     <div class="hovereffect">
@@ -134,10 +137,11 @@
                         </div>
                     </div>
                 </figure>
-       </div>    
         </div>
-   </form>
+
+        </form>
  </div>
+</div>
     
   </div>  
 </div>
@@ -206,6 +210,7 @@ export default {
           this.dinnerItems.push(this.items[11])
           this.dinnerItems.push(this.items[14])
           this.dinnerItems.push(this.items[17])
+          this.dinnerItems.push(this.items[20])
           this.breakfastMeals.push(this.items[0])
           this.lunchMeals.push(this.items[1])
           this.dinnerMeals.push(this.items[2])

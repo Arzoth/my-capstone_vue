@@ -58,10 +58,10 @@
                          <h3 class="text-primary opening-title space-bottom-30">Here is the Nutrition info</h3>
                         <p class="opening-hours"></p>
                         
-                        <h3 class="text-primary opening-title space-bottom-30">Carbs: {{recipesUsed.carbs.value}} gram</h3>
-                        <h3 class="text-primary opening-title space-bottom-30">Fat: {{recipesUsed.fat.value}}  gram</h3>
-                        <h3 class="text-primary opening-title space-bottom-30">Calories:{{recipesUsed.calories.value}} calories</h3>
-                        <h3 class="text-primary opening-title space-bottom-30">Protein:{{recipesUsed.protein.value}} gram</h3>
+                        <h3 class="text-primary opening-title space-bottom-30">Carbs: {{recipesUsed.carbs.value }} <span v-if="completed"> gram </span> </h3>
+                        <h3 class="text-primary opening-title space-bottom-30">Fat: {{recipesUsed.fat.value}} <span v-if="completed"> gram </span></h3>
+                        <h3 class="text-primary opening-title space-bottom-30">Calories:{{recipesUsed.calories.value}} <span v-if="completed"> gram </span> </h3>
+                        <h3 class="text-primary opening-title space-bottom-30">Protein:{{recipesUsed.protein.value}} <span v-if="completed"> gram </span> </h3>
                     </div><!-- / opening-right -->
                     <div class="col-xs-12">
                        
@@ -94,6 +94,7 @@ export default {
       message: "Welcome to index!",
       recipesUsed: {protein: {value: ""}, carbs: {value: ""}, calories: {value: ""}, fat: {value: ""}},
       newNutrition: "",
+      completed: false,
 
     };
   },
@@ -109,6 +110,7 @@ export default {
       .then(response => {
       console.log(response.data);
       this.recipesUsed = response.data;
+      this.completed = true
     })
   }
 }  
